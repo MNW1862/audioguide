@@ -1,0 +1,147 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main content container */
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
+    margin: 5%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Styled buttons */
+button, .button {
+    display: block;
+    width: 100%;
+    background: #007db3;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Go back button */
+a.button {
+    background: #007db3;
+}
+
+a.button:hover {
+    background: #005f85;
+}
+
+/* Replay button */
+#replay-btn {
+    background: #d08930;
+}
+
+#replay-btn:hover {
+    background: #ca7d12;
+}
+
+/* API data styling */
+.api-data {
+    margin-bottom: 0.5rem;
+}
+
+
+/* Thumbnail styling */
+.thumbnail {
+    width: 90%;
+    display: block;
+    margin: 0 auto 15px; /* Centers the image and adds spacing below */
+    max-height: 30vh;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Media control */
+audio, video {
+    max-width: 80vh;
+}
+
+/* Button hover and focus effects */
+button:hover, .button:hover {
+    background: #005f85;
+}
+
+button:focus, .button:focus {
+    outline: 3px solid #ffcc00;
+}
+
+/* Custom Audio Controls */
+.custom-audio-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    gap: 10px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+/* Buttons match keypad styling */
+.audio-btn {
+    background: #6dbf47;
+    color: white;
+    font-size: 1.5rem;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+    height: 60px;
+}
+
+.audio-btn:hover {
+    background: #579939;
+}
+
+/* Time Display */
+.audio-time {
+    font-size: 1.0rem;
+    font-weight: bold;
+    color: white;
+    background: #444;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    display: flex;
+    width: 30vw;
+    height: 60px;
+    text-align: center;
+    margin-top: 15px;
+}
+.audio-text {
+    margin: auto;
+}
+

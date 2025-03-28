@@ -1,0 +1,134 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main content container */
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-left: 2%;
+    margin-right: 2%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Headings */
+h1 {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+h2 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+/* MNW "logo" */
+.mnw {
+    color: #b20005;
+    }
+
+/* Input field */
+input {
+    width: 100%;
+    padding: 15px;
+    font-size: 2rem;
+    text-align: center;
+    border: 2px solid #007db3;
+    border-radius: 6px;
+    margin: 10px 0;
+    outline: none;
+    background-color: #f9f9f9;
+    cursor: default;
+}
+
+/* Custom Keypad */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.keypad button {
+    background: #007db3;
+    color: white;
+    font-size: 1.5rem;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.keypad button:hover {
+    background: #005f85;
+}
+
+/* Clear button (C) */
+.keypad .clear-btn {
+    background: #d9534f;
+}
+
+.keypad .clear-btn:hover {
+    background: #b52b27;
+}
+
+/* Backspace button (←) */
+.keypad .backspace-btn {
+    background: #d08930;
+}
+
+.keypad .backspace-btn:hover {
+    background: #ca7d12;
+}
+
+/* Submit button */
+button {
+    width: 100%;
+    background: #6dbf47;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #579939;
+}
+
+button:focus {
+    outline: 3px solid #ffcc00;
+}
+
+/* Smooth container hover effect */
+.container:hover {
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
