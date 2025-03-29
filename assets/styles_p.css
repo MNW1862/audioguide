@@ -149,3 +149,8 @@ button:focus, .button:focus {
     margin: auto;
 }
 
+.about p {
+	text-align: left;
+	margin-bottom: 0.5rem;
+	font-size: 1rem;
+}

@@ -40,11 +40,11 @@
     </label>
 
     <!-- Menu Items -->
-    <a href="#">EN</a>
-    <a href="#">PL</a>
-    <a href="#">Polityka prywatności</a>
-    <a href="#">Deklaracja dostępności</a>
-    <a href="#">Kontakt</a>
+    <a href="index_en.php">EN</a>
+    <a href="index.php">PL</a>
+    <a href="about.php?section=1">Polityka prywatności</a>
+    <a href="about.php?section=2">Deklaracja dostępności</a>
+    <a href="about.php?section=3">Kontakt</a>
   </nav>
   </header>
 
