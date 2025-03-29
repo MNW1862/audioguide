@@ -9,7 +9,45 @@
 </head>
 <body>
     <div class="container">
+    <header>
         <h1><span class="mnw">MNW</span> / Audioguide</h1>
+
+    <!-- Menu Toggle -->
+    <input type="checkbox" id="menu-toggle">
+
+    <!-- Hamburger Icon Label -->
+    <label for="menu-toggle" class="menu-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <line x1="3" y1="6" x2="21" y2="6" />
+    <line x1="3" y1="12" x2="21" y2="12" />
+    <line x1="3" y1="18" x2="21" y2="18" />
+    </svg>
+    </label>
+  <!-- Overlay -->
+  <label for="menu-toggle" class="overlay"></label>
+
+  <!-- Menu -->
+  <nav class="menu">
+
+    <!-- Menu Toggle -->
+    <input type="checkbox" id="menu-toggle">
+    <!-- Close Button -->
+    <label for="menu-toggle" class="close-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </label>
+
+    <!-- Menu Items -->
+    <a href="#">EN</a>
+    <a href="#">PL</a>
+    <a href="#">Polityka prywatności</a>
+    <a href="#">Deklaracja dostępności</a>
+    <a href="#">Kontakt</a>
+  </nav>
+  </header>
+
         
         <form action="process.php" method="get" onsubmit="return validateForm()">
             <input type="text" id="number" name="number" placeholder="123" required readonly>

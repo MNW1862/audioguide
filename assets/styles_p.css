@@ -17,6 +17,10 @@ body {
     height: 100vh;
 }
 
+h1 {
+   margin: 5px auto 5px auto;
+}
+
 /* Main content container */
 .container {
     background: white;
