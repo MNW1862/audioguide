@@ -24,6 +24,7 @@ if ($section == 1) {
         $sec_title = "Deklaracja dostępności";
 } elseif ($section == 3) {
         $sec_title = "Kontakt";
+        $sec_content .= "<h3><a href=\"mailto:audioguide@mnw.art.pl\">audioguide@mnw.art.pl</a></h3>";
 } else {
     header("Location: 404.php");
     exit();
