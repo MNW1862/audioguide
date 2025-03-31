@@ -16,24 +16,26 @@
     <input type="checkbox" id="menu-toggle">
 
     <!-- Hamburger Icon Label -->
-    <label for="menu-toggle" class="menu-icon" title="Otwórz menu">
+    <label for="menu-toggle" class="menu-icon">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <title id="open_menu">Otwórz menu</title>
     <line x1="3" y1="6" x2="21" y2="6" />
     <line x1="3" y1="12" x2="21" y2="12" />
     <line x1="3" y1="18" x2="21" y2="18" />
     </svg>
     </label>
   <!-- Overlay -->
-  <label for="menu-toggle" class="overlay" title="Menu">Menu</label>
+  <label for="menu-toggle" class="overlay" title="Menu"></label>
 
   <!-- Menu -->
   <nav class="menu">
 
     <!-- Menu Toggle -->
-    <input type="checkbox" id="menu-toggle">
+    <input type="checkbox" id="menu-toggle" aria-labelledby="open_menu">
     <!-- Close Button -->
-    <label for="menu-toggle" class="close-icon" title="Zamknij menu">
+    <label for="menu-toggle" class="close-icon">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <title>Zamknij menu</title>
         <line x1="18" y1="6" x2="6" y2="18" />
         <line x1="6" y1="6" x2="18" y2="18" />
       </svg>

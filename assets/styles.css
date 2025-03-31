@@ -74,8 +74,9 @@ header {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     padding: 2rem 1rem;
     display: flex;
-    z-index: 5;
+    justify-content: flex-start;
     flex-direction: column;
+    z-index: 5;
     opacity: 0;
     pointer-events: none;
 }
