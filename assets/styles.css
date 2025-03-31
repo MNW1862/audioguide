@@ -198,17 +198,17 @@ input {
 
 /* Backspace button (←) */
 .keypad .backspace-btn {
-    background: #d08930;
+    background: #cc852e;
 }
 
 .keypad .backspace-btn:hover {
-    background: #ca7d12;
+    background: #b37529;
 }
 
 /* Submit button */
 button {
     width: 100%;
-    background: #6dbf47;
+    background: #5ca63a;
     color: white;
     padding: 15px;
     border: none;
@@ -221,7 +221,7 @@ button {
 }
 
 button:hover {
-    background: #579939;
+    background: #4e8c31;
 }
 
 button:focus {

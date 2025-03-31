@@ -16,7 +16,7 @@
     <input type="checkbox" id="menu-toggle">
 
     <!-- Hamburger Icon Label -->
-    <label for="menu-toggle" class="menu-icon">
+    <label for="menu-toggle" class="menu-icon" title="Otwórz menu">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
     <line x1="3" y1="6" x2="21" y2="6" />
     <line x1="3" y1="12" x2="21" y2="12" />
@@ -24,7 +24,7 @@
     </svg>
     </label>
   <!-- Overlay -->
-  <label for="menu-toggle" class="overlay"></label>
+  <label for="menu-toggle" class="overlay" title="Menu">Menu</label>
 
   <!-- Menu -->
   <nav class="menu">
@@ -32,7 +32,7 @@
     <!-- Menu Toggle -->
     <input type="checkbox" id="menu-toggle">
     <!-- Close Button -->
-    <label for="menu-toggle" class="close-icon">
+    <label for="menu-toggle" class="close-icon" title="Zamknij menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="18" y1="6" x2="6" y2="18" />
         <line x1="6" y1="6" x2="18" y2="18" />

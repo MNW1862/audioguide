@@ -163,7 +163,9 @@ if (in_array($mediaExt, $audioFormats)) {
 </head>
 <body>
     <div class="container">
+    <header>
     <h1><span class="mnw">MNW</span> / Audioguide</h1>
+    </header>
     <h2><?php echo $number; ?></h2>
         <p><?php echo $apiResponse; ?></p>
 
@@ -176,7 +178,7 @@ if (in_array($mediaExt, $audioFormats)) {
 
     <div class="custom-audio-controls">
         <!-- Play/Pause Button -->
-        <button id="play-pause-btn" class="audio-btn" onclick="togglePlayPause()">
+        <button id="play-pause-btn" class="audio-btn" onclick="togglePlayPause()" title="Odtwarzaj">
             <svg id="play-icon" viewBox="0 0 24 24" width="24" height="24" fill="white">
                 <polygon points="5,3 19,12 5,21"></polygon>
             </svg>
@@ -187,7 +189,7 @@ if (in_array($mediaExt, $audioFormats)) {
         </button>
 
         <!-- Replay Button -->
-        <button id="replay-btn" class="audio-btn" onclick="replayAudio()">
+        <button id="replay-btn" class="audio-btn" onclick="replayAudio()" title="Powtórz">
             <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
                 <path d="M12 5V1L8 5l4 4V6a7 7 0 1 1-7 7h-2a9 9 0 1 0 9-9z"></path>
             </svg>
@@ -205,7 +207,7 @@ if (in_array($mediaExt, $audioFormats)) {
         <?php endif; ?>
 
         <br>
-        <a href="index.php" class="button">&#x2b05;</a>
+         <a href="index.php" class="button" title="Do strony głównej">&#x2b05;</a>
     </div>
 </body>
 </html>
