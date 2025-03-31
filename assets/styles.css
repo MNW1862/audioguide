@@ -17,6 +17,108 @@ body {
     height: 100vh;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+    z-index: 2;
+    background: #fff;
+}
+
+/* Hide checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* Hamburger icon */
+.menu-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.menu-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+/* Menu */
+.menu {
+    position: fixed;
+    top: 20vh;
+    left: 0;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    transform: translateX(500%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+/* Close icon */
+.close-icon {
+    align-self: flex-end;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-top: 10%;
+    margin-right: 10%;
+    margin-bottom: 2rem;
+}
+
+.close-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Show menu and overlay when checkbox is checked */
+#menu-toggle:checked ~ .overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#menu-toggle:checked ~ .menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0%);
+}
 /* Main content container */
 .container {
     background: white;
@@ -29,14 +131,14 @@ body {
     margin-bottom: 10%;
     margin-left: 2%;
     margin-right: 2%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 0;
 }
 
 /* Headings */
 h1 {
     color: #333;
     font-size: 1.2rem;
-    margin-bottom: 15px;
+    margin: auto 5px auto 5px;
 }
 h2 {
     color: #333;
@@ -97,17 +199,17 @@ input {
 
 /* Backspace button (←) */
 .keypad .backspace-btn {
-    background: #d08930;
+    background: #cc852e;
 }
 
 .keypad .backspace-btn:hover {
-    background: #ca7d12;
+    background: #b37529;
 }
 
 /* Submit button */
 button {
     width: 100%;
-    background: #6dbf47;
+    background: #5ca63a;
     color: white;
     padding: 15px;
     border: none;
@@ -120,7 +222,7 @@ button {
 }
 
 button:hover {
-    background: #579939;
+    background: #4e8c31;
 }
 
 button:focus {

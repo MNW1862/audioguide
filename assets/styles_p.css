@@ -17,6 +17,10 @@ body {
     height: 100vh;
 }
 
+h1 {
+   margin: 5px auto 5px auto;
+}
+
 /* Main content container */
 .container {
     background: white;
@@ -57,11 +61,11 @@ a.button:hover {
 
 /* Replay button */
 #replay-btn {
-    background: #d08930;
+    background: #ca7d12;
 }
 
 #replay-btn:hover {
-    background: #ca7d12;
+    background: #b37529;
 }
 
 /* API data styling */
@@ -107,7 +111,7 @@ button:focus, .button:focus {
 
 /* Buttons match keypad styling */
 .audio-btn {
-    background: #6dbf47;
+    background: #5ca63a;
     color: white;
     font-size: 1.5rem;
     padding: 15px;
@@ -123,7 +127,7 @@ button:focus, .button:focus {
 }
 
 .audio-btn:hover {
-    background: #579939;
+    background: #4e8c31;
 }
 
 /* Time Display */
@@ -145,3 +149,8 @@ button:focus, .button:focus {
     margin: auto;
 }
 
+.about p {
+	text-align: left;
+	margin-bottom: 0.5rem;
+	font-size: 1rem;
+}
