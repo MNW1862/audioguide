@@ -36,7 +36,7 @@ if ($section == 1) {
 	$sec_content .= "<li>Strona nie ma wersji kontrastowej</li>";
 	$sec_content .= "<li>Podczas nawigacji na stronie czasami focus przestaje być widoczny</li>";
 	$sec_content .= "</ol>";
-	$sec_content .= "<h3>Przygtowanie deklaracji dostępności</h3>";
+	$sec_content .= "<h3>Przygotowanie deklaracji dostępności</h3>";
 	$sec_content .= "<ul>";
 	$sec_content .= "<li>Data sporządzenia deklaracji: 2 kwietnia 2025 r.</li>";
 	$sec_content .= "<li>Data ostatniego przeglądu deklaracji: 2 kwietnia 2025 r.</li>";
