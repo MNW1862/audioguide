@@ -12,6 +12,7 @@ if (!isset($_GET['number']) || !ctype_digit($_GET['number'])) {
 
 $number = $_GET['number'];
 $csvFile = 'data.csv';
+$csvFile_nm = 'data_nm.csv';
 $found = false;
 $apiData = null;
 
@@ -34,48 +35,73 @@ if (!$found) {
     exit();
 }
 
-// Fetch data from the API
-$apiUrl = "https://cyfrowe-api.mnw.art.pl/object/$id";
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $apiUrl);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, ["accept: application/json"]);
-$response = curl_exec($ch);
-curl_close($ch);
+// if $id is number look for data in API, elsewhere look for non MUZA objects
+if (ctype_digit($id)) {
 
 
-// Decode API response
-$apiData = json_decode($response, true);
 
-if ($apiData['status'] == "404") {
+    // Fetch data from the API
+    $apiUrl = "https://cyfrowe-api.mnw.art.pl/object/$id";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $apiUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ["accept: application/json"]);
+    $response = curl_exec($ch);
+    curl_close($ch);
 
-    $apiResponse = "<p class=\"api-data\">Zapraszamy do słuchania.</p>";
 
-} else {
+    // Decode API response
+    $apiData = json_decode($response, true);
 
-    // Extract required fields
-    $author = $apiData['data']['authors'][0]['name'] ?? "Brak autora";
-    $title = $apiData['data']['title'] ?? "Bez tytułu";
-    $noEvidence = $apiData['data']['noEvidence'] ?? "Brak nru inw.";
+    if ($apiData['status'] == "404") {
 
-    // Construct the image URL if available
-    $imagePath = $apiData['data']['image']['filePath'] ?? null;
-    $imageExt = $apiData['data']['image']['extension'] ?? null;
-    $imageFullName = $imagePath . "." . $imageExt;
-    $imageUrl = $imagePath ? "https://cyfrowe-cdn.mnw.art.pl/upload/cache/multimedia_detail/$imageFullName" : null;
+        $apiResponse = "<p class=\"api-data\">Zapraszamy do słuchania.</p>";
 
-    // Format API response for display
-    $apiResponse = "<p class=\"api-data\"><strong>$title</strong><br>$author<br>$noEvidence</p>";
-
-    if ($imagePath) {
-        $imageResponse = "<img src=\"".htmlspecialchars($imageUrl)."\" alt=\"Miniaturka obiektu\" class=\"thumbnail\" loading=\"lazy\">";
     } else {
+
+        // Extract required fields
+        $author = $apiData['data']['authors'][0]['name'] ?? "Brak autora";
+        $title = $apiData['data']['title'] ?? "Bez tytułu";
+        $noEvidence = $apiData['data']['noEvidence'] ?? "Brak nru inw.";
+
+        // Construct the image URL if available
+        $imagePath = $apiData['data']['image']['filePath'] ?? null;
+        $imageExt = $apiData['data']['image']['extension'] ?? null;
+        $imageFullName = $imagePath . "." . $imageExt;
+        $imageUrl = $imagePath ? "https://cyfrowe-cdn.mnw.art.pl/upload/cache/multimedia_detail/$imageFullName" : null;
+
+        // Format API response for display
+        $apiResponse = "<p class=\"api-data\"><strong>$title</strong><br>$author<br>$noEvidence</p>";
+
+        if ($imagePath) {
+        $imageResponse = "<img src=\"".htmlspecialchars($imageUrl)."\" alt=\"Miniaturka obiektu\" class=\"thumbnail\" loading=\"lazy\">";
+        } else {
         $imageResponse = "";
+        }
+
+        $apiResponse = $apiResponse . $imageResponse;
+
+
     }
+} elseif (!empty($id)) {
+    // use same or second file to find data about current entry
+    if (($handle_nm = fopen($csvFile_nm, 'r')) !== FALSE) {
+        while (($data_nm = fgetcsv($handle_nm, 3000, ',')) !== FALSE) {
+            if ($data_nm[0] === $id) {
+                $mediaUrl = $data_nm[1]; // media
 
-    $apiResponse = $apiResponse . $imageResponse;
+                // Format response for display
+                $dataResponse = "<p class=\"api-data\">$data_nm[2]</p>";
+                $imageResponse = "<img src=\"".htmlspecialchars($data_nm[3])."\" alt=\"Miniaturka obiektu\" class=\"thumbnail\" loading=\"lazy\">";
+                $found = true;
 
+                $apiResponse = $dataResponse . $imageResponse;
 
+                break;
+            }
+        }
+        fclose($handle_nm);
+    }
 }
 
 // Extract file extension to determine media type
@@ -180,13 +206,13 @@ if (in_array($mediaExt, $audioFormats)) {
         <!-- Play/Pause Button -->
         <button id="play-pause-btn" class="audio-btn" onclick="togglePlayPause()">
             <svg id="play-icon" viewBox="0 0 24 24" width="24" height="24" fill="white">
-		<polygon points="5,3 19,12 5,21">
+        <polygon points="5,3 19,12 5,21">
                 <title>Odtwarzaj</title>
                 </polygon>
             </svg>
             <svg id="pause-icon" viewBox="0 0 24 24" width="24" height="24" fill="white" style="display:none;">
-	
-		<rect x="5" y="3" width="5" height="18">
+    
+        <rect x="5" y="3" width="5" height="18">
                 <title>Pauza</title>
                 </rect>
                 <rect x="14" y="3" width="5" height="18"></rect>
@@ -196,8 +222,8 @@ if (in_array($mediaExt, $audioFormats)) {
         <!-- Replay Button -->
         <button id="replay-btn" class="audio-btn" onclick="replayAudio()">
             <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
-		<path d="M12 5V1L8 5l4 4V6a7 7 0 1 1-7 7h-2a9 9 0 1 0 9-9z">
-		<title>Odtwórz ponownie</title>
+        <path d="M12 5V1L8 5l4 4V6a7 7 0 1 1-7 7h-2a9 9 0 1 0 9-9z">
+        <title>Odtwórz ponownie</title>
                 </path>
             </svg>
         </button>
