@@ -102,6 +102,8 @@ if (ctype_digit($id)) {
         }
         fclose($handle_nm);
     }
+} else {
+    $apiResponse = "<p class=\"api-data\">Zapraszamy do słuchania.</p>";
 }
 
 // Extract file extension to determine media type
