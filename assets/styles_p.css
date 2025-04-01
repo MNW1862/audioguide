@@ -150,7 +150,7 @@ button:focus, .button:focus {
 }
 
 .about p {
-	text-align: left;
-	margin-bottom: 0.5rem;
-	font-size: 1rem;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
 }
