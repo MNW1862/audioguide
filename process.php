@@ -173,7 +173,7 @@ if (in_array($mediaExt, $audioFormats)) {
 
 <audio id="custom-audio" autoplay preload="metadata">
         <source src="<?php echo htmlspecialchars($mediaUrl); ?>" type="audio/<?php echo $mediaExt; ?>">
-        Your browser does not support the audio element.
+        Twoja przeglądarka nie wspiera odtwarzania audio.
     </audio>
 
     <div class="custom-audio-controls">
