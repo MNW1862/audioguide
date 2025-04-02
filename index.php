@@ -52,27 +52,27 @@
 
         
         <form action="process.php" method="get" onsubmit="return validateForm()">
-            <input type="text" id="number" name="number" placeholder="123" required readonly>
+            <input type="text" id="number" name="number" placeholder="123" tabindex="0" required readonly>
             <label for="number">
             <p id="error-message" class="error-message">Proszę wprowadzić numer.</p>
             </label>
             
             <!-- Custom Numeric Keypad -->
-            <div class="keypad">
-                <button type="button" onclick="addDigit('1')">1</button>
-                <button type="button" onclick="addDigit('2')">2</button>
-                <button type="button" onclick="addDigit('3')">3</button>
+            <div class="keypad" role="keypad">
+                <button type="button" tabindex="1" onclick="addDigit('1')">1</button>
+                <button type="button" tabindex="2" onclick="addDigit('2')">2</button>
+                <button type="button" tabindex="3" onclick="addDigit('3')">3</button>
                 
-                <button type="button" onclick="addDigit('4')">4</button>
-                <button type="button" onclick="addDigit('5')">5</button>
-                <button type="button" onclick="addDigit('6')">6</button>
+                <button type="button" tabindex="4" onclick="addDigit('4')">4</button>
+                <button type="button" tabindex="5" onclick="addDigit('5')">5</button>
+                <button type="button" tabindex="6" onclick="addDigit('6')">6</button>
                 
-                <button type="button" onclick="addDigit('7')">7</button>
-                <button type="button" onclick="addDigit('8')">8</button>
-                <button type="button" onclick="addDigit('9')">9</button>
+                <button type="button" tabindex="7" onclick="addDigit('7')">7</button>
+                <button type="button" tabindex="8" onclick="addDigit('8')">8</button>
+                <button type="button" tabindex="9" onclick="addDigit('9')">9</button>
                 
                 <button type="button" onclick="clearInput()" class="clear-btn">C</button>
-                <button type="button" onclick="addDigit('0')">0</button>
+                <button type="button" tabindex="10" onclick="addDigit('0')">0</button>
                 <button type="button" onclick="deleteLastDigit()" class="backspace-btn">&#x232b;</button>
             </div>
 

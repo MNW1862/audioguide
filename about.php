@@ -89,7 +89,9 @@ if ($section == 1) {
 </head>
 <body>
     <div class="container about">
+    <header>
     <h1><span class="mnw">MNW</span> / Audioguide</h1>
+    </header>
     <h2><?php echo $sec_title; ?></h2>
     
     <?php echo $sec_content; ?>
