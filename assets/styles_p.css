@@ -122,10 +122,15 @@ button:focus, .button:focus {
     margin: auto;
 }
 
-.about p {
+.about p, .about ul, .about ol {
     text-align: left;
     margin-bottom: 0.5rem;
     font-size: 1rem;
+    list-style-position: inside;
+}
+
+.about h3 {
+    margin-top: 1rem;
 }
 
 .nodata {
