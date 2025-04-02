@@ -14,7 +14,7 @@
         <h1><span class="mnw">MNW</span> / Audioguide</h1>
 	</header>
         <h2>Brak mediów</h2>
-        <p>Przepraszamy, nie mamy takiego numeru.</p>
+        <p class="nodata">Przepraszamy, nie mamy takiego numeru.</p>
         <a href="index.php" class="button">&#x2b05;</a>
     </div>
 </body>
