@@ -10,45 +10,19 @@
 <body>
     <div class="container">
     <header>
-        <h1><span class="mnw">MNW</span> / Audioguide</h1>
+    <h1><span class="mnw">MNW</span> / Audioguide</h1>
 
-    <!-- Menu Toggle -->
-    <input type="checkbox" id="menu-toggle">
-
-    <!-- Hamburger Icon Label -->
-    <label for="menu-toggle" class="menu-icon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <title id="open_menu">Otwórz menu</title>
-    <line x1="3" y1="6" x2="21" y2="6" />
-    <line x1="3" y1="12" x2="21" y2="12" />
-    <line x1="3" y1="18" x2="21" y2="18" />
+    <!-- Hamburger button -->
+    <a class="menu-icon" href="menu.php">
+    <svg viewBox="0 0 30 30" fill="none" stroke="black" stroke-width="2">
+	<title id="open_menu">Otwórz menu</title>
+	<line x1="3" y1="6" x2="21" y2="6" />
+	<line x1="3" y1="12" x2="21" y2="12" />
+	<line x1="3" y1="18" x2="21" y2="18" />
     </svg>
-    </label>
+    </a>
+    </header>
   <!-- Overlay -->
-  <label for="menu-toggle" class="overlay" title="Menu"></label>
-
-  <!-- Menu -->
-  <nav class="menu">
-
-    <!-- Menu Toggle -->
-    <input type="checkbox" id="menu-toggle" aria-labelledby="open_menu">
-    <!-- Close Button -->
-    <label for="menu-toggle" class="close-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <title>Zamknij menu</title>
-        <line x1="18" y1="6" x2="6" y2="18" />
-        <line x1="6" y1="6" x2="18" y2="18" />
-      </svg>
-    </label>
-
-    <!-- Menu Items -->
-    <a href="index_en.php">EN</a>
-    <a href="index.php">PL</a>
-    <a href="about.php?section=1">Polityka prywatności</a>
-    <a href="about.php?section=2">Deklaracja dostępności</a>
-    <a href="about.php?section=3">Kontakt</a>
-  </nav>
-  </header>
 
         
         <form action="process.php" method="get" onsubmit="return validateForm()">
