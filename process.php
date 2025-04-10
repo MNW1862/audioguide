@@ -1,6 +1,6 @@
 <?php
 // Allowed media formats
-$audioFormats = ['mp3', 'ogg'];
+$audioFormats = ['mp3', 'ogg', 'wav'];
 $videoFormats = ['mp4', 'mov'];
 
 // Check if number is provided and valid (digits only)
