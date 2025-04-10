@@ -4,9 +4,13 @@ HOST=$(hostname)
 # copy php files
 
 if [[ $HOST == "ojs" ]]; then
-	cp -vf *.php /var/www/html/guide
-	# copy data file
-	cp -vf *.csv /var/www/html/guide
-	# copy assets (aux files, graphics?, css)
-	cp -vRf assets/*.css assets/*.ico /var/www/html/guide/assets/
+    WWWDIR="/var/www/html/guide/"
+else
+    WWWDIR="/var/www/html/"
 fi
+
+cp -vf *.php $WWWDIR
+# copy data file
+cp -vf *.csv $WWWDIR
+# copy assets (aux files, graphics?, css)
+cp -vRf assets/*.css assets/*.ico $WWWDIR/assets/
