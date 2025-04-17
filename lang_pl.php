@@ -50,7 +50,7 @@ HTML
 <p>Deklaracja dostępności dotyczy strony internetowej <a href="https://audioguide.mnw.art.pl">audioguide.mnw.art.pl</a></p>
 <ul>
     <li>Data publikacji strony internetowej: 10 kwietnia 2025 r.</li>
-    <li>Data ostatniej istotnej aktualizacji: 10 kwietnia 2025 r.</li>
+    <li>Data ostatniej istotnej aktualizacji: 17 kwietnia 2025 r.</li>
 </ul>
 <h3>Stan dostępności cyfrowej</h3>
 <p>Strona internetowa jest częściowo zgodna z załącznikiem do rozporządzenia z powodu niezgodności lub wyłączeń wymienionych poniżej.</p>
