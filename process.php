@@ -1,8 +1,16 @@
 <?php
-// Determine lang inclusion
-if (!isset($_GET['lang']) || $_GET['lang'] == 'pl') {
-    require 'lang_pl.php';
-} elseif (file_exists('lang_en.php') && $_GET['lang'] == 'en') {
+// Safely determine lang inclusion
+$lang_param = filter_input(
+    INPUT_GET,
+    'lang',
+    FILTER_VALIDATE_REGEXP,
+    ['options'=>['regexp'=>'/^(pl|en)$/']]
+);
+if ($lang_param === false || $lang_param === null) {
+    $lang_param = 'pl';
+}
+
+if ($lang_param === 'en' && file_exists('lang_en.php')) {
     require 'lang_en.php';
     $csvFile = 'data_en.csv';
     $csvFile_nm = 'data_nm_en.csv';
@@ -10,18 +18,22 @@ if (!isset($_GET['lang']) || $_GET['lang'] == 'pl') {
     require 'lang_pl.php';
 }
 
-// Allowed media formats
-$audioFormats = ['mp3', 'ogg', 'wav'];
-$videoFormats = ['mp4', 'mov'];
-
-// Check if number is provided and valid (digits only)
-if (!isset($_GET['number']) || !ctype_digit($_GET['number'])) {
+// Safely determine media number
+// Note: with this approach we cannot use 0001 style numbers
+$number = filter_input(
+    INPUT_GET, 'number',
+    FILTER_VALIDATE_INT, ['options'=>['min_range'=>1]]
+);
+if ($number === false || $number === null) {
     header('HTTP/1.1 404 Not Found');
     include '404.php';
     exit();
 }
 
-$number = $_GET['number'];
+// Allowed media formats
+$audioFormats = ['mp3', 'ogg', 'wav'];
+$videoFormats = ['mp4', 'mov'];
+
 // If data files are not defined or don't exist - load Polish versions
 if (!isset($csvFile) || !file_exists($csvFile)) {
     $csvFile = 'data.csv';

@@ -1,21 +1,32 @@
 <?php
-// Determine lang inclusion
-if (!isset($_GET['lang']) || $_GET['lang'] == 'pl') {
-    require 'lang_pl.php';
-} elseif (file_exists('lang_en.php') && $_GET['lang'] == 'en') {
+// Safely determine lang inclusion
+$lang_param = filter_input(
+    INPUT_GET,
+    'lang',
+    FILTER_VALIDATE_REGEXP,
+    ['options'=>['regexp'=>'/^(pl|en)$/']]
+);
+if ($lang_param === false || $lang_param === null) {
+    $lang_param = 'pl';
+}
+
+if ($lang_param === 'en' && file_exists('lang_en.php')) {
     require 'lang_en.php';
 } else {
     require 'lang_pl.php';
 }
 
-// Check if number is provided and valid (digits only)
-if (!isset($_GET['section']) || !ctype_digit($_GET['section'])) {
+// Safely determine section
+$section = filter_input(
+    INPUT_GET, 'section',
+    FILTER_VALIDATE_INT, ['options'=>['min_range'=>1,'max_range'=>3]]
+);
+if ($section === false || $section === null) {
     header('HTTP/1.1 404 Not Found');
     include '404.php';
     exit();
 }
 
-$section = $_GET['section'];
 # Section toc
 # 1 - privacy
 # 2 - accessibility
