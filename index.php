@@ -13,7 +13,7 @@ if (!isset($_GET['lang']) || $_GET['lang'] == 'pl') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $lang['inde_page_title']; ?></title>
+    <title><?php echo $lang['index_page_title']; ?></title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="assets/styles.css">
 </head>
@@ -23,7 +23,7 @@ if (!isset($_GET['lang']) || $_GET['lang'] == 'pl') {
     <h1><?php echo $lang['header_title']; ?></h1>
 
     <!-- Hamburger button -->
-    <a class="menu-icon" href="menu.php">
+    <a class="menu-icon" href="menu.php?<?php echo $lang['lang_ver']; ?>">
     <svg viewBox="0 0 30 30" fill="none" stroke="black" stroke-width="2">
 	<title id="open_menu"><?php echo $lang['index_menu_open']; ?></title>
 	<line x1="3" y1="6" x2="21" y2="6" />

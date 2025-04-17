@@ -37,9 +37,9 @@ if (!isset($_GET['lang']) || $_GET['lang'] == 'pl') {
     <div class="menuitems">
     <a href="index.php?lang=en">EN</a>
     <a href="index.php">PL</a>
-    <a href="about.php?section=1"><?php echo $lang['menu_privacy']; ?></a>
-    <a href="about.php?section=2"><?php echo $lang['menu_accessibility']; ?></a>
-    <a href="about.php?section=3"><?php echo $lang['menu_contact']; ?></a>
+    <a href="about.php?section=1<?php echo '&lang=' . $lang['lang_ver']; ?>"><?php echo $lang['menu_privacy']; ?></a>
+    <a href="about.php?section=2<?php echo '&lang=' . $lang['lang_ver']; ?>"><?php echo $lang['menu_accessibility']; ?></a>
+    <a href="about.php?section=3<?php echo '&lang=' . $lang['lang_ver']; ?>"><?php echo $lang['menu_contact']; ?></a>
     </div>
     <br>
     <a href="index.php<?php echo "?lang=" . $lang['lang_ver']; ?>" class="button" title="<?php echo $lang['home_title']; ?>">&#x2b05;</a>
