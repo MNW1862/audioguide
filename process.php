@@ -77,13 +77,22 @@ if (ctype_digit($id)) {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $apiUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FAILONERROR, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, ["accept: application/json"]);
     $response = curl_exec($ch);
+    // Securing fail with API - but will it work with Cyfrowe,
+    // which isn't very reliable?
+    if ($response === false) {
+	error_log('API fetch failed: ' . curl_error($ch), 0);
+    }
     curl_close($ch);
 
 
     // Decode API response
     $apiData = json_decode($response, true);
+    if (json_last_error() !== JSON_ERROR_NONE) {
+	error_log('JSON parse error: ' . json_last_error_msg(), 0);
+    }
 
     if ($apiData['status'] == "404") {
 
