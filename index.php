@@ -23,7 +23,7 @@ if (!isset($_GET['lang']) || $_GET['lang'] == 'pl') {
     <h1><?php echo $lang['header_title']; ?></h1>
 
     <!-- Hamburger button -->
-    <a class="menu-icon" href="menu.php?<?php echo $lang['lang_ver']; ?>">
+    <a class="menu-icon" href="menu.php<?php echo "?lang=" . $lang['lang_ver']; ?>">
     <svg viewBox="0 0 30 30" fill="none" stroke="black" stroke-width="2">
 	<title id="open_menu"><?php echo $lang['index_menu_open']; ?></title>
 	<line x1="3" y1="6" x2="21" y2="6" />
@@ -37,6 +37,7 @@ if (!isset($_GET['lang']) || $_GET['lang'] == 'pl') {
         
         <form action="process.php" method="get" onsubmit="return validateForm()">
             <input type="text" id="number" name="number" placeholder="123" tabindex="0" required readonly>
+	    <input type="hidden" id="lang" name="lang" value="<?php echo $lang['lang_ver']; ?>">
             <label for="number">
             <p id="error-message" class="error-message"><?php echo $lang['index_error_message']; ?></p>
             </label>
