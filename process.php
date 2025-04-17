@@ -43,7 +43,7 @@ $found = false;
 $apiData = null;
 
 if (($handle = fopen($csvFile, 'r')) !== FALSE) {
-    while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
+    while (($data = fgetcsv($handle, 10_000, ',')) !== FALSE) {
         if ($data[0] === $number) {
             $id = $data[1];  // API object ID from the second column
             $mediaUrl = $data[2];
@@ -112,7 +112,7 @@ if (ctype_digit($id)) {
 } elseif (!empty($id)) {
     // use same or second file to find data about current entry
     if (($handle_nm = fopen($csvFile_nm, 'r')) !== FALSE) {
-        while (($data_nm = fgetcsv($handle_nm, 3000, ',')) !== FALSE) {
+        while (($data_nm = fgetcsv($handle_nm, 10_000, ',')) !== FALSE) {
             if ($data_nm[0] === $id) {
                 $mediaUrl = $data_nm[1]; // media
 
