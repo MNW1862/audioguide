@@ -95,19 +95,27 @@ if (ctype_digit($id)) {
         $author = $apiData['data']['authors'][0]['name'] ?? $lang['api_no_author'];
         $title = $apiData['data']['title'] ?? $lang['api_no_title'];
         $noEvidence = $apiData['data']['noEvidence'] ?? $lang['api_no_invno'];
+	// Secure data from API
+	$sAuthor = htmlspecialchars($author, ENT_QUOTES, 'UTF-8');
+	$sTitle = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
+	$sNoEvidence = htmlspecialchars($noEvidence, ENT_QUOTES, 'UTF-8');
 
         // Construct the image URL if available
         $imagePath = $apiData['data']['image']['filePath'] ?? null;
         $imageExt = $apiData['data']['image']['extension'] ?? null;
-        $imageFullName = $imagePath . "." . $imageExt;
+	// Secure data from API
+	$sImagePath = htmlspecialchars($imagePath, ENT_QUOTES, 'UTF-8');
+	$sImageExt = htmlspecialchars($imageExt, ENT_QUOTES, 'UTF-8');
+
+        $imageFullName = $sImagePath . "." . $sImageExt;
 	// Link to image - no need to include in translations
-        $imageUrl = $imagePath ? "https://cyfrowe-cdn.mnw.art.pl/upload/cache/multimedia_detail/$imageFullName" : null;
+        $imageUrl = $sImagePath ? "https://cyfrowe-cdn.mnw.art.pl/upload/cache/multimedia_detail/$imageFullName" : null;
 
         // Format API response for display
-        $apiResponse = "<p class=\"api-data\"><strong>$title</strong><br>$author<br>$noEvidence</p>";
+        $apiResponse = "<p class=\"api-data\"><strong>$sTitle</strong><br>$sAuthor<br>$sNoEvidence</p>";
 
-        if ($imagePath) {
-        $imageResponse = "<img src=\"".htmlspecialchars($imageUrl)."\" alt=\"".$lang['alt_no_min']."\" class=\"thumbnail\" loading=\"lazy\">";
+        if ($sImagePath) {
+        $imageResponse = "<img src=\"{$imageUrl}\" alt=\"{$lang['alt_no_min']}\" class=\"thumbnail\" loading=\"lazy\">";
         } else {
         $imageResponse = "";
         }
@@ -121,11 +129,14 @@ if (ctype_digit($id)) {
     if (($handle_nm = fopen($csvFile_nm, 'r')) !== FALSE) {
         while (($data_nm = fgetcsv($handle_nm, 10000, ',')) !== FALSE) {
             if ($data_nm[0] === $id) {
-                $mediaUrl = $data_nm[1]; // media
+                $mediaUrl = htmlspecialchars($data_nm[1], ENT_QUOTES, 'UTF-8'); // media
+		// $nmData = htmlspecialchars($data_nm[2], ENT_QUOTES, 'UTF-8');
+		$nmData = $data_nm[2]; // there are HTML tags for formatting, need to convert that
+		$nmImage = htmlspecialchars($data_nm[3], ENT_QUOTES, 'UTF-8');
 
                 // Format response for display
-                $dataResponse = "<p class=\"api-data\">$data_nm[2]</p>";
-                $imageResponse = "<img src=\"".htmlspecialchars($data_nm[3])."\" alt=\"".$lang['alt_no_min']."\" class=\"thumbnail\" loading=\"lazy\">";
+                $dataResponse = "<p class=\"api-data\">{$nmData}</p>";
+                $imageResponse = "<img src=\"{$nmImage}\" alt=\"{$lang['alt_no_min']}\" class=\"thumbnail\" loading=\"lazy\">";
                 $found = true;
 
                 $apiResponse = $dataResponse . $imageResponse;
@@ -136,7 +147,7 @@ if (ctype_digit($id)) {
         fclose($handle_nm);
     }
 } else {
-    $apiResponse = "<p class=\"api-data\">".$lang['api_listen']."</p>";
+    $apiResponse = "<p class=\"api-data\">{$lang['api_listen']}</p>";
 }
 
 // Extract file extension to determine media type
