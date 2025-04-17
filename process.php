@@ -12,10 +12,22 @@ if ($lang_param === false || $lang_param === null) {
 
 if ($lang_param === 'en' && file_exists('lang_en.php')) {
     require 'lang_en.php';
-    $csvFile = 'data_en.csv';
-    $csvFile_nm = 'data_nm_en.csv';
 } else {
     require 'lang_pl.php';
+}
+
+// Define data files
+// Main data file
+if ($lang_param === 'en' && file_exists('data_en.csv')) {
+    $csvFile = 'data_en.csv';
+} else {
+    $csvFile = 'data.csv';
+}
+// Data for non-muza/cyfrowe entries
+if ($lang_param === 'en' && file_exists('data_nm_en.csv')) {
+    $csvFile_nm = 'data_nm_en.csv';
+} else {
+    $csvFile_nm = 'data_nm.csv';
 }
 
 // Safely determine media number
@@ -34,17 +46,12 @@ if ($number === false || $number === null) {
 $audioFormats = ['mp3', 'ogg', 'wav'];
 $videoFormats = ['mp4', 'mov'];
 
-// If data files are not defined or don't exist - load Polish versions
-if (!isset($csvFile) || !file_exists($csvFile)) {
-    $csvFile = 'data.csv';
-    $csvFile_nm = 'data_nm.csv';
-}
 $found = false;
 $apiData = null;
 
 if (($handle = fopen($csvFile, 'r')) !== FALSE) {
-    while (($data = fgetcsv($handle, 10_000, ',')) !== FALSE) {
-        if ($data[0] === $number) {
+    while (($data = fgetcsv($handle, 10000, ',')) !== FALSE) {
+        if ($data[0] == $number) {
             $id = $data[1];  // API object ID from the second column
             $mediaUrl = $data[2];
             $found = true;
@@ -112,7 +119,7 @@ if (ctype_digit($id)) {
 } elseif (!empty($id)) {
     // use same or second file to find data about current entry
     if (($handle_nm = fopen($csvFile_nm, 'r')) !== FALSE) {
-        while (($data_nm = fgetcsv($handle_nm, 10_000, ',')) !== FALSE) {
+        while (($data_nm = fgetcsv($handle_nm, 10000, ',')) !== FALSE) {
             if ($data_nm[0] === $id) {
                 $mediaUrl = $data_nm[1]; // media
 
