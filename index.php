@@ -1,21 +1,31 @@
+<?php
+// Determine lang inclusion
+if (!isset($_GET['lang']) || $_GET['lang'] == 'pl') {
+    require 'lang_pl.php';
+} elseif (file_exists('lang_en.php') && $_GET['lang'] == 'en') {
+    require 'lang_en.php';
+} else {
+    require 'lang_pl.php';
+}
+?>
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="<?php echo $lang['lang_ver']; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MNW Audioguide</title>
+    <title><?php echo $lang['index_page_title']; ?></title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
     <div class="container">
     <header>
-    <h1><span class="mnw">MNW</span> / Audioguide</h1>
+    <h1><?php echo $lang['header_title']; ?></h1>
 
     <!-- Hamburger button -->
-    <a class="menu-icon" href="menu.php">
+    <a class="menu-icon" href="menu.php<?php echo "?lang=" . $lang['lang_ver']; ?>">
     <svg viewBox="0 0 30 30" fill="none" stroke="black" stroke-width="2">
-	<title id="open_menu">Otwórz menu</title>
+	<title id="open_menu"><?php echo $lang['index_menu_open']; ?></title>
 	<line x1="3" y1="6" x2="21" y2="6" />
 	<line x1="3" y1="12" x2="21" y2="12" />
 	<line x1="3" y1="18" x2="21" y2="18" />
@@ -27,8 +37,9 @@
         
         <form action="process.php" method="get" onsubmit="return validateForm()">
             <input type="text" id="number" name="number" placeholder="123" tabindex="0" required readonly>
+	    <input type="hidden" id="lang" name="lang" value="<?php echo $lang['lang_ver']; ?>">
             <label for="number">
-            <p id="error-message" class="error-message">Proszę wprowadzić numer.</p>
+            <p id="error-message" class="error-message"><?php echo $lang['index_error_message']; ?></p>
             </label>
             
             <!-- Custom Numeric Keypad -->
@@ -45,12 +56,12 @@
                 <button type="button" tabindex="8" onclick="addDigit('8')">8</button>
                 <button type="button" tabindex="9" onclick="addDigit('9')">9</button>
                 
-                <button type="button" onclick="clearInput()" class="clear-btn">C</button>
+                <button type="button" onclick="clearInput()" class="clear-btn" title="<?php echo $lang['index_clear_no']; ?>">C</button>
                 <button type="button" tabindex="10" onclick="addDigit('0')">0</button>
-                <button type="button" onclick="deleteLastDigit()" class="backspace-btn">&#x232b;</button>
+                <button type="button" onclick="deleteLastDigit()" class="backspace-btn" title="<?php echo $lang['index_delete_last']; ?>">&#x232b;</button>
             </div>
 
-            <button type="submit">&#x2b95;</button>
+            <button type="submit" title="<?php echo $lang['index_send']; ?>">&#x2b95;</button>
         </form>
     </div>
 
@@ -90,4 +101,3 @@
     </script>
 </body>
 </html>
-
