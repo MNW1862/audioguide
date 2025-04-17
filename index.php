@@ -58,7 +58,7 @@ if (!isset($_GET['lang']) || $_GET['lang'] == 'pl') {
                 
                 <button type="button" onclick="clearInput()" class="clear-btn" title="<?php echo $lang['index_clear_no']; ?>">C</button>
                 <button type="button" tabindex="10" onclick="addDigit('0')">0</button>
-                <button type="button" onclick="deleteLastDigit()" class="backspace-btn" title="<?php echo $lang['index_delete_last']; ?>">&#x232b;</button>
+                <button type="button" tabindex="11" onclick="deleteLastDigit()" class="backspace-btn" title="<?php echo $lang['index_delete_last']; ?>">&#x232b;</button>
             </div>
 
             <button type="submit" title="<?php echo $lang['index_send']; ?>">&#x2b95;</button>
