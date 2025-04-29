@@ -1,20 +1,6 @@
 <?php
-// Safely determine lang inclusion
-$lang_param = filter_input(
-    INPUT_GET,
-    'lang',
-    FILTER_VALIDATE_REGEXP,
-    ['options'=>['regexp'=>'/^(pl|en)$/']]
-);
-if ($lang_param === false || $lang_param === null) {
-    $lang_param = 'pl';
-}
-
-if ($lang_param === 'en' && file_exists('lang_en.php')) {
-    require 'lang_en.php';
-} else {
-    require 'lang_pl.php';
-}
+// Include common elements
+require '/var/www/include_audio/common.php';
 
 // Safely determine section
 $section = filter_input(
