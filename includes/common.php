@@ -10,7 +10,7 @@ error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
 header('Strict-Transport-Security: max-age=31536000; includeSubdomains; preload');
 header('X-Frame-Options: SAMEORIGIN');
 header('X-Content-Type-Options: nosniff');
-header("Content-Security-Policy: default-src 'self'; script-src 'self';");
+// header("Content-Security-Policy: default-src 'nonce-rand'; script-src 'nonce-rand';");
 
 // Define include dir
 $incdir = '/var/www/include_audio/';

@@ -59,7 +59,7 @@ require '/var/www/include_audio/common.php';
         </form>
     </div>
 
-    <script>
+    <script nonce="rand">
         function addDigit(digit) {
             var inputField = document.getElementById('number');
             
