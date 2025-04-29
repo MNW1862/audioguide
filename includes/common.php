@@ -26,10 +26,10 @@ if ($lang_param === false || $lang_param === null) {
     $lang_param = 'pl';
 }
 
-if ($lang_param === 'en' && file_exists('lang_en.php')) {
-    require $inc_dir . 'lang_en.php';
+if ($lang_param === 'en' && file_exists($incdir . 'lang_en.php')) {
+    require $incdir . 'lang_en.php';
 } else {
-    require $inc_dir . 'lang_pl.php';
+    require $incdir . 'lang_pl.php';
 }
 
 ?>
