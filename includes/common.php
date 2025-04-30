@@ -13,7 +13,7 @@ $nonce_string = base64_encode(random_bytes(96));
 header('Strict-Transport-Security: max-age=31536000; includeSubdomains; preload');
 header('X-Frame-Options: SAMEORIGIN');
 header('X-Content-Type-Options: nosniff');
-header("Content-Security-Policy: base-uri 'self'; object-src 'none'; script-src 'unsafe-inline' 'nonce-$nonce_string'; script-src-attr 'unsafe-inline';");
+header("Content-Security-Policy: base-uri 'self'; object-src 'none'; script-src 'nonce-$nonce_string'; script-src-attr 'self';");
 
 // Define include dir
 $incdir = '/var/www/include_audio/';
