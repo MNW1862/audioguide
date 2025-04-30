@@ -33,30 +33,31 @@ require '/var/www/include_audio/common.php';
     <label for="number">
     <p id="error-message" class="error-message"><?php echo $lang['index_error_message']; ?></p>
     </label>
-
+            
     <!-- Custom Numeric Keypad -->
     <div class="keypad" role="keypad">
-        <button type="button" tabindex="1" onclick="addDigit('1')">1</button>
-        <button type="button" tabindex="2" onclick="addDigit('2')">2</button>
-        <button type="button" tabindex="3" onclick="addDigit('3')">3</button>
-
-        <button type="button" tabindex="4" onclick="addDigit('4')">4</button>
-        <button type="button" tabindex="5" onclick="addDigit('5')">5</button>
-        <button type="button" tabindex="6" onclick="addDigit('6')">6</button>
-
-        <button type="button" tabindex="7" onclick="addDigit('7')">7</button>
-        <button type="button" tabindex="8" onclick="addDigit('8')">8</button>
-        <button type="button" tabindex="9" onclick="addDigit('9')">9</button>
-
-        <button type="button" onclick="clearInput()" class="clear-btn" title="<?php echo $lang['index_clear_no']; ?>">C</button>
-        <button type="button" tabindex="10" onclick="addDigit('0')">0</button>
-        <button type="button" tabindex="11" onclick="deleteLastDigit()" class="backspace-btn" title="<?php echo $lang['index_delete_last']; ?>">&#x232b;</button>
+        <button type="button" id="b01" tabindex="1">1</button>
+        <button type="button" id="b02" tabindex="2">2</button>
+        <button type="button" id="b03" tabindex="3">3</button>
+        
+        <button type="button" id="b04" tabindex="4">4</button>
+        <button type="button" id="b05" tabindex="5">5</button>
+        <button type="button" id="b06" tabindex="6">6</button>
+        
+        <button type="button" id="b07" tabindex="7">7</button>
+        <button type="button" id="b08" tabindex="8">8</button>
+        <button type="button" id="b09" tabindex="9">9</button>
+        
+        <button type="button" id="bci" class="clear-btn" title="<?php echo $lang['index_clear_no']; ?>">C</button>
+        <button type="button" id="b00" tabindex="10">0</button>
+        <button type="button" id="bdl" tabindex="11" class="backspace-btn" title="<?php echo $lang['index_delete_last']; ?>">&#x232b;</button>
     </div>
 
     <button type="submit" title="<?php echo $lang['index_send']; ?>">&#x2b95;</button>
     </form>
 
     <script nonce="<?php echo $nonce_string; ?>">
+
         function addDigit(digit) {
             var inputField = document.getElementById('number');
 
@@ -89,6 +90,20 @@ require '/var/www/include_audio/common.php';
             errorMessage.classList.remove('show');
             return true;
         }
+
+        // add events to buttons
+        document.getElementById("b01").addEventListener("click", function () { addDigit('1'); }, false);
+        document.getElementById("b02").addEventListener("click", function () { addDigit('2'); }, false);
+        document.getElementById("b03").addEventListener("click", function () { addDigit('3'); }, false);
+        document.getElementById("b04").addEventListener("click", function () { addDigit('4'); }, false);
+        document.getElementById("b05").addEventListener("click", function () { addDigit('5'); }, false);
+        document.getElementById("b06").addEventListener("click", function () { addDigit('6'); }, false);
+        document.getElementById("b07").addEventListener("click", function () { addDigit('7'); }, false);
+        document.getElementById("b08").addEventListener("click", function () { addDigit('8'); }, false);
+        document.getElementById("b09").addEventListener("click", function () { addDigit('9'); }, false);
+        document.getElementById("b00").addEventListener("click", function () { addDigit('0'); }, false);
+        document.getElementById("bci").addEventListener("click", function () { clearInput(); }, false);
+        document.getElementById("bdl").addEventListener("click", function () { deleteLastDigit(); }, false);
     </script>
 </body>
 </html>
