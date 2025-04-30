@@ -9,8 +9,8 @@ require '/var/www/include_audio/common.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $lang['404_title']; ?></title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="stylesheet" href="assets/styles.css">
-    <link rel="stylesheet" href="assets/styles_p.css">
+    <link nonce="<?php echo $nonce_string; ?>" rel="stylesheet" href="assets/styles.css">
+    <link nonce="<?php echo $nonce_string; ?>" rel="stylesheet" href="assets/styles_p.css">
 </head>
 <body>
     <div class="container">

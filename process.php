@@ -167,10 +167,10 @@ if (in_array($mediaExt, $audioFormats)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $lang['process_title_prefix'] . ": " . $number; ?></title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="stylesheet" href="assets/styles.css">
-    <link rel="stylesheet" href="assets/styles_p.css">
+    <link nonce="<?php echo $nonce_string; ?>" rel="stylesheet" href="assets/styles.css">
+    <link nonce="<?php echo $nonce_string; ?>" rel="stylesheet" href="assets/styles_p.css">
 
-<script>
+<script nonce="<?php echo $nonce_string; ?>">
     document.addEventListener("DOMContentLoaded", function () {
         const audio = document.getElementById("custom-audio");
         const playPauseBtn = document.getElementById("play-pause-btn");
