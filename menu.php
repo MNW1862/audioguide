@@ -15,7 +15,7 @@ require '/var/www/include_audio/common.php';
 <body>
     <div class="container">
     <header>
-    <h1><?php echo $lang['header_title']; ?></h1>
+    <h1><a href="index.php<?php echo "?lang=" . $lang['lang_ver']; ?>"><?php echo $lang['header_title']; ?></a></h1>
 
     <!-- Close button -->
     <a class="menu-icon" href="index.php<?php echo "?lang=" . $lang['lang_ver']; ?>">

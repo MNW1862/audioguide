@@ -44,7 +44,7 @@ if ($section == 1) {
 <body>
     <div class="container about">
     <header>
-    <h1><?php echo $lang['header_title']; ?></h1>
+    <h1><a href="index.php<?php echo "?lang=" . $lang['lang_ver']; ?>"><?php echo $lang['header_title']; ?></a></h1>
     </header>
     <h2><?php echo $sec_title; ?></h2>
     

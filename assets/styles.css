@@ -26,6 +26,12 @@ header {
     background: #fff;
     height: 3rem;
 }
+header h1 a {
+    text-decoration: none;
+}
+header h1 a:visited {
+    color: black;
+}
 
 /* Menu icon */
 .menu-icon {

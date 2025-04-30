@@ -231,7 +231,7 @@ if (in_array($mediaExt, $audioFormats)) {
 <body>
     <div class="container">
     <header>
-    <h1><?php echo $lang['header_title']; ?></h1>
+    <h1><a href="index.php<?php echo "?lang=" . $lang['lang_ver']; ?>"><?php echo $lang['header_title']; ?></a></h1>
     </header>
     <h2><?php echo $number; ?></h2>
         <p><?php echo $apiResponse; ?></p>
